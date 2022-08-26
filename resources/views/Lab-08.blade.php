@@ -10,7 +10,7 @@
         @endif
 
             <div class="card">
-                <div class="card-header"><h3>Informações do Lab-02</h3></div>
+                <div class="card-header"><h3>Informações do Lab-08</h3></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -19,15 +19,14 @@
                         </div>[-]
                     @endif
 
-                    @foreach($data2 as $item2)
+                    @foreach($data8 as $item8)
 
-                    <h4>Nome: {{$item2->NomeLab}}</h4>
-                    <h4>Número de Lugares: {{$item2->NumLugares}}</h4>
-                    <h4>Número de Computadores: {{$item2->NumComputadores}}</h4>
-                    <h4>Estado: {{$item2->EstadoLab}}</h4>
+                    <h4>Nome: {{$item8->NomeLab}}</h4>
+                    <h4>Número de Lugares: {{$item8->NumLugares}}</h4>
+                    <h4>Número de Computadores: {{$item8->NumComputadores}}</h4>
+                    <h4>Estado: {{$item8->EstadoLab}}</h4>
                     <hr>
-                    <h4>Infromações Adicionais: {{$item2->InformaçõesAdicionais}}</h4>
-
+                    <h4>Infromações Adicionais: {{$item8->InformaçõesAdicionais}}</h4>
 
                     <hr>
 
@@ -65,7 +64,7 @@
 <div class="form-group mb-3">
 <label class="form-label">Nome Lab</label>
 <select type="text" name="laboratório" class="form-select" aria-label="Default select example" id="NomeLab">
-<option value="Lab-02">Lab-02</option>
+<option value="Lab-0">Lab-08</option>
 </select>
 </div>
 
@@ -110,3 +109,4 @@
 </form>
 </body>
 @endsection
+

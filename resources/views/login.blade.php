@@ -34,7 +34,7 @@
                         <input type="password" class="form-control" name="password" placeholder="Senha:">
                         <span class="text-danger">@error('password'){{ $message }} @enderror</span>
                     </div>
-                    <button type="submit" class="btn btn-block btn-primary">Entrar</button>
+                    <button type="submit" class="btn btn-block btn-primary bg-gradient">Entrar</button>
 
                 </form>
             </div>

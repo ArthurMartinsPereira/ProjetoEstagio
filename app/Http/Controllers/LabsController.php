@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Solicitações;
+
 
 class LabsController extends Controller
 {
@@ -43,4 +45,53 @@ class LabsController extends Controller
         $data6 = DB::table('laboratórios')->where('id',6)->get();
         return view('Lab-06',['data6'=>$data6]);
     }
+    function index7()
+    {
+        $data7 = DB::table('laboratórios')->where('id',7)->get();
+        return view('Lab-07',['data7'=>$data7]);
+    }
+    function index8()
+    {
+        $data8 = DB::table('laboratórios')->where('id',8)->get();
+        return view('Lab-08',['data8'=>$data8]);
+    }
+
+    public function index9()
+    {
+
+            $data9 = DB::table('solicitações')->where('Professor',auth()->user()->name)
+            ->orderBy('created_at', 'desc')->get();
+            return view('Solicitações',['data9'=>$data9]);
+
+    }
+
+
+    function create(){
+
+        return view('AgendaLab-01.create');
+    }
+
+
+       /**
+         * Store a newly created resource in storage.
+         *
+         * @param  \Illuminate\Http\Request  $request
+         * @return \Illuminate\Http\Response
+         */
+        function store(Request $request){
+
+            $solicitação = new Solicitações;
+            $solicitação->laboratório = $request->input('laboratório');
+            $solicitação->Professor = $request->input('Professor');
+            $solicitação->Dia = $request->input('Dia');
+            $solicitação->Horário = $request->input('Horário');
+            $solicitação->Estado = $request->input('Estado');
+            $solicitação->save();
+
+            return redirect('home')->with('solicitação', 'Solicitação Enviada!');
+
+    }
+
 }
+
+

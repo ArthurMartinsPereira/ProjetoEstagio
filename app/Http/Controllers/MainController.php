@@ -24,14 +24,14 @@ class MainController extends Controller{
         $userInfo = users::where('email', '=', $request->email)->first();
 
         if(!$userInfo){
-            return back()->with('fail', 'Email não Reconhecido');
+            return back()->with('falha', 'Email ou Senha Errada');
         }else{
             if(Hash::check($request->password, $userInfo->password)){
                 $request->session()->put('LoggedUser', $userInfo->id);
                 return redirect('users/dashboard');
 
            }else{
-                return back()->with('fail', 'Senha Errada');
+                return back()->with('falha', 'Email ou Senha Errada');
            }
         }
    }

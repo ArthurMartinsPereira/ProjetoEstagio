@@ -17,6 +17,7 @@
             }
         </style>
 
+<!-- Estilo dos Botões -->
         <style>
             button {
   background-color: #3c5e7d;
@@ -68,17 +69,17 @@ button:hover {
                 <div>
 
                         <a href="{{ route('login') }}">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary bg-gradient">
                                     <h4>Login</h4>
                                 </button></a>
 
                         <a href="{{ route('register') }}">
-                             <button type="submit" class="btn btn-primary">
+                             <button type="submit" class="btn btn-primary bg-gradient">
                                 <h4>Registrar-se</h4>
                             </button></a>
 
-                        <a>
-                        <button type="submit" class="btn btn-primary">
+                        <a herf="/loginGerente">
+                            <button type="submit" class="btn btn-primary bg-gradient">
                                 <h4>Login Gerenciador</h4>
                             </button></a>
 

@@ -35,6 +35,7 @@
   transition-duration: 0.4s;
   cursor: pointer;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-bottom: 5px;
 }
 
 button:hover {
@@ -69,18 +70,13 @@ button:hover {
                 <div>
 
                         <a href="{{ route('login') }}">
-                            <button type="submit" class="btn btn-primary bg-gradient">
+                            <button type="submit" class="bottom-3 btn btn-primary bg-gradient">
                                     <h4>Login</h4>
                                 </button></a>
 
-                        <a href="{{ route('register') }}">
-                             <button type="submit" class="btn btn-primary bg-gradient">
+                        <a href="/register">
+                             <button type="submit" class="bottom-3 btn btn-primary bg-gradient">
                                 <h4>Registrar-se</h4>
-                            </button></a>
-
-                        <a herf="/loginGerente">
-                            <button type="submit" class="btn btn-primary bg-gradient">
-                                <h4>Login Gerenciador</h4>
                             </button></a>
 
                 </div>

@@ -31,7 +31,6 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="https://avatars.githubusercontent.com/u/10983643?s=280&v=4" width="30" height="30" class="d-inline-block align-top" alt="">
                     <!--Nome original =>  {{ config('app.name', 'Laravel') }} -->
                     Sistema de Agendamento
                 </a>

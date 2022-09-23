@@ -18,7 +18,7 @@
                 <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                <a class="nav-link" href="home">Lista de Laboratórios</a>
+                <a class="nav-link" href="home">Informações dos Laboratórios</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="/Solicitações">Solicitações de Agendamento</a>

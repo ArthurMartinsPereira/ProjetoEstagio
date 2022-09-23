@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.layoutGerente')
+
 @section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" />
+
 </head>
 <body>
 <div class="container">
@@ -18,13 +20,13 @@
                 <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                <a class="nav-link" href="home">Lista de Laboratórios</a>
+                <a class="nav-link" href="/LabsGerente">Informações dos Laboratórios</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/Solicitações">Solicitações de Agendamento</a>
+                <a class="nav-link" href="">Solicitações de Agendamento</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/Calendário">Calendário</a>
+                <a class="nav-link" href="/CalendárioGerente">Calendário</a>
                 </li>
                 </div>
                 </ul>
@@ -64,7 +66,7 @@
                 selectable: true,
                 selectHelper: true,
                 select: function (start, end, allDay) {
-                    var event_name = prompt('Name do Lab:');
+                    var event_name = prompt('Nome do Lab:');
                     if (event_name) {
                         var start = $.fullCalendar.formatDate(start, "YYYY-MM-DD HH:mm:ss");
                         var end = $.fullCalendar.formatDate(end, "YYYY-MM-DD HH:mm:ss");
@@ -151,4 +153,3 @@
 </body>
 </html>
 @endsection
-

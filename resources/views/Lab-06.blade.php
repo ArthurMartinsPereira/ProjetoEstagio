@@ -24,7 +24,6 @@
                     <h4>Nome: {{$item6->NomeLab}}</h4>
                     <h4>Número de Lugares: {{$item6->NumLugares}}</h4>
                     <h4>Número de Computadores: {{$item6->NumComputadores}}</h4>
-                    <h4>Estado: {{$item6->EstadoLab}}</h4>
                     <hr>
                     <h4>Infromações Adicionais: {{$item6->InformaçõesAdicionais}}</h4>
 

@@ -23,7 +23,7 @@
                 <a class="nav-link" href="/LabsGerente">Informações dos Laboratórios</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="">Solicitações de Agendamento</a>
+                <a class="nav-link" href="GerenciarSolicitações">Solicitações de Agendamento</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="/CalendárioGerente">Calendário</a>

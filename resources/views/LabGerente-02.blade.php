@@ -31,11 +31,11 @@
                     <hr>
 
 <div  align="center">
-    <a>
-       <button type="button" class="btn btn-success bg-gradient" data-bs-toggle="modal">
-          <h3>Agendar Laboratório</h3>
-       </button>
-    </a>
+<a href="Gerente.Index">
+                    <button type="button" class="btn btn-success bg-gradient editbtn">
+                          <h3>Alterar Informações</h3>
+                       </button>
+                    </a>
 </div>
 
     @endforeach
@@ -49,7 +49,7 @@
 
 
 <!--Modal das Solicitações -->
-<
+
 </form>
 </body>
 @endsection

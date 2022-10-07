@@ -5,6 +5,7 @@ use app\Http\Controllers\MainController;
 use app\Http\Controllers\LabsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\RegisterController;
+use app\Http\Controllers\LabsGerenteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,15 +34,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Labs', function () {
-    return view('Lab-01');
+Route::get('Lab-teste','LabsController@index');
 
-});
-
-
-Route::get('/Labs', function () {
-    return view('Lab-02');
-});
 
 Route::get('Lab-01','LabsController@index');
 Route::get('Lab-02','LabsController@index2');
@@ -52,19 +46,23 @@ Route::get('Lab-06','LabsController@index6');
 Route::get('Lab-07','LabsController@index7');
 Route::get('Lab-08','LabsController@index8');
 
-Route::get('LabG-01','LabsController@index');
-Route::get('LabG-02','LabsController@index2');
-Route::get('LabG-03','LabsController@index3');
-Route::get('LabG-04','LabsController@index4');
-Route::get('LabG-05','LabsController@index5');
-Route::get('LabG-06','LabsController@index6');
-Route::get('LabG-07','LabsController@index7');
-Route::get('LabG-08','LabsController@index8');
-
 Route::get('Solicitações','LabsController@index9');
-
-
 Route::post('solicitação', 'LabsController@store');
+
+Route::get('GerenciarSolicitações','LabsController@index10');
+
+
+Route::get('LabGerente-01','LabsGerenteController@index');
+Route::get('LabGerente-02','LabsGerenteController@index2');
+Route::get('LabGerente-03','LabsGerenteController@index3');
+Route::get('LabGerente-04','LabsGerenteController@index4');
+Route::get('LabGerente-05','LabsGerenteController@index5');
+Route::get('LabGerente-06','LabsGerenteController@index6');
+Route::get('LabGerente-07','LabsGerenteController@index7');
+Route::get('LabGerente-08','LabsGerenteController@index8');
+Route::get('Gerente.Index','LabsGerenteController@index9');
+Route::get('Gerente.Editar/{id}','LabsGerenteController@edit');
+Route::put('Gerente.Update/{id}','LabsGerenteController@update')->name('Gerente.Update');
 
 Route::get('calendar', [EventController::class, 'index'])->name('calendar.index');
 Route::post('calendar/create-event', [EventController::class, 'create'])->name('calendar.create');

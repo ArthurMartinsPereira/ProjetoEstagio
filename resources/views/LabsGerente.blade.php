@@ -16,7 +16,7 @@
                 <a class="nav-link" href="home">Informações dos Laboratórios</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/Solicitações">Solicitações de Agendamento</a>
+                <a class="nav-link" href="GerenciarSolicitações">Solicitações de Agendamento</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="/CalendárioGerente">Calendário</a>
@@ -28,11 +28,14 @@
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
-                        </div>[-]
+                        </div>
                     @endif
+                    @if(session('success'))
+        <div class="alert alert-success" role="alert">{{session('success')}}</div>
+        @endif
 
 <div>
-                    <a href="/Lab-01">
+                    <a href="/LabGerente-01">
                         <button type="submit" class="btn btn-primary bg-gradient">
                             Lab 01
                         </button>
@@ -40,7 +43,7 @@
 </div>
 <hr>
 <div>
-                    <a href="/Lab-02">
+                    <a href="/LabGerente-02">
                         <button type="submit" class="btn btn-primary bg-gradient">
                             Lab 02
                         </button>
@@ -48,7 +51,7 @@
 </div>
 <hr>
 <div>
-                    <a href="/Lab-03">
+                    <a href="/LabGerente-03">
                         <button type="submit" class="btn btn-primary bg-gradient">
                             Lab 03
                         </button>
@@ -56,7 +59,7 @@
 </div>
 <hr>
 <div>
-                    <a href="/Lab-04">
+                    <a href="/LabGerente-04">
                         <button type="submit" class="btn btn-primary bg-gradient">
                             Lab 04
                         </button>
@@ -64,7 +67,7 @@
 </div>
 <hr>
 <div>
-                    <a href="/Lab-05">
+                    <a href="/LabGerente-05">
                         <button type="submit" class="btn btn-primary bg-gradient">
                             Lab 05
                         </button>
@@ -72,7 +75,7 @@
 </div>
 <hr>
 <div>
-                    <a href="/Lab-06">
+                    <a href="/LabGerente-06">
                         <button type="submit" class="btn btn-primary bg-gradient">
                             Lab 06
                         </button>
@@ -80,7 +83,7 @@
 </div>
 <hr>
 <div>
-                    <a href="/Lab-07">
+                    <a href="/LabGerente-07">
                         <button type="submit" class="btn btn-primary bg-gradient">
                             Lab 07
                         </button>
@@ -88,7 +91,7 @@
 </div>
 <hr>
 <div>
-                    <a href="/Lab-08">
+                    <a href="/LabGerente-08">
                         <button type="submit" class="btn btn-primary bg-gradient">
                             Lab 08
                         </button>

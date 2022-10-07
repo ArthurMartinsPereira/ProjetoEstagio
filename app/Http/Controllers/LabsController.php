@@ -65,6 +65,14 @@ class LabsController extends Controller
 
     }
 
+    public function index10()
+    {
+
+            $data10 = DB::table('solicitações')
+            ->orderBy('created_at', 'desc')->get();
+            return view('GerenciarSolicitações',['data10'=>$data10]);
+
+    }
 
     function create(){
 
@@ -93,5 +101,4 @@ class LabsController extends Controller
     }
 
 }
-
 

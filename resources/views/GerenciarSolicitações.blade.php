@@ -11,7 +11,7 @@
                 <a class="nav-link" href="/LabsGerente">Informações dos Laboratórios</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/Solicitações">Solicitações de Agendamento</a>
+                <a class="nav-link" href="GerenciarSolicitações">Solicitações de Agendamento</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="/CalendárioGerente">Calendário</a>
@@ -20,16 +20,17 @@
                 </ul>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>[-]
+
+                    @if (session('resposta'))
+                    <div class="alert alert-success">
+                            {{ session('resposta') }}
+                        </div>
                     @endif
 
                     @foreach($data10 as $item10)
                     <div align="center">
-                    <a>
-                        <button type="button" class="btn-lg btn-primary bg-gradient" data-bs-toggle="modal">
+                    <a href="{{ url ('Gerente.Resposta/'.$item10->id) }}">
+                        <button type="button" class="btn-lg btn-primary bg-gradient" value="{{$item10->id}}" data-bs-toggle="modal">
                             <h4>Agendamento: {{$item10->laboratório}}</h4>
                             <h6>Dia Agendado: {{$item10->Dia}}</h6>
                             <h6>Horário Agendado: {{$item10->Horário}}<h6>

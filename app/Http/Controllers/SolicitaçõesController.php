@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Foundation\Auth\Solicitações;
+use App\Models\Solicitações;
 /*use App\Models\User;*/
 
 class SolicitaçõesController extends Controller
@@ -14,12 +14,13 @@ class SolicitaçõesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index10()
     {
-       /* {
-            $data9 = DB::table('solicitações')->where('Professor',Auth::user()->name)->get();
-            return view('Solicitações',['data9'=>$data9]);
-        }  */
+
+            $data10 = DB::table('solicitações')
+            ->orderBy('created_at', 'desc')->get();
+            return view('GerenciarSolicitações',['data10'=>$data10]);
+
     }
 
     public function notify()
@@ -28,25 +29,42 @@ class SolicitaçõesController extends Controller
     }
 
 
-
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
        /* return view('AgendaLab-01.create');    */
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function show($id)
+    {
+        //
+    }
+
+
+    public function edit(Solicitações $solicitações, $id){
+        $solic = Solicitações::find($id);
+        if(!empty($solic)){
+            $data10 = DB::table('solicitações')->where('id',$id)->get();
+            return view('Gerente.Resposta', compact('solicitações', 'solic'),['data10'=>$data10]);
+        }
+       else{
+         return redirect('GerenciarSolicitações');
+       }
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data12 = [
+            'Estado' => $request->Estado,
+
+        ];
+        Solicitações::where('id',$id)->update($data12);
+
+        return redirect('GerenciarSolicitações')->with('resposta', 'Resposta Enviada!');
+    }
+
+
+
+
     public function store(Request $request)
     {
          $this->validate($request,[
@@ -67,40 +85,6 @@ class SolicitaçõesController extends Controller
         $soli->save();
 
         return redirect('/AgendaLab-01')->with('concluído', 'Solicitação Enviada');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**

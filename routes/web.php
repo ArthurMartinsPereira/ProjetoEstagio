@@ -46,10 +46,14 @@ Route::get('Lab-06','LabsController@index6');
 Route::get('Lab-07','LabsController@index7');
 Route::get('Lab-08','LabsController@index8');
 
+
 Route::get('Solicitações','LabsController@index9');
 Route::post('solicitação', 'LabsController@store');
 
-Route::get('GerenciarSolicitações','LabsController@index10');
+
+Route::get('GerenciarSolicitações','SolicitaçõesController@index10');
+Route::get('Gerente.Resposta/{id}','SolicitaçõesController@edit');
+Route::put('Gerente.Responder/{id}','SolicitaçõesController@update')->name('Gerente.Responder');
 
 
 Route::get('LabGerente-01','LabsGerenteController@index');
@@ -63,6 +67,9 @@ Route::get('LabGerente-08','LabsGerenteController@index8');
 Route::get('Gerente.Index','LabsGerenteController@index9');
 Route::get('Gerente.Editar/{id}','LabsGerenteController@edit');
 Route::put('Gerente.Update/{id}','LabsGerenteController@update')->name('Gerente.Update');
+
+
+
 
 Route::get('calendar', [EventController::class, 'index'])->name('calendar.index');
 Route::post('calendar/create-event', [EventController::class, 'create'])->name('calendar.create');

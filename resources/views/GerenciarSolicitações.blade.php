@@ -1,4 +1,4 @@
-@extends('layouts.layoutGerente')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -8,13 +8,16 @@
                 <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                <a class="nav-link" href="/LabsGerente">Informações dos Laboratórios</a>
+                <a class="nav-link" href="/LabsGerente">Gerenciar Laboratórios</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="GerenciarSolicitações">Solicitações de Agendamento</a>
+                <a class="nav-link" href="GerenciarSolicitações">Gerenciar Solicitações</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/CalendárioGerente">Calendário</a>
+                <a class="nav-link" href="/CalendárioGerente">Calendário Gerente</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" href="home">Área do Usuário</a>
                 </li>
                 </div>
                 </ul>

@@ -1,4 +1,4 @@
-@extends('layouts.layoutGerente')
+@extends('layouts.app')
 
 @section('content')
 <!DOCTYPE html>
@@ -20,16 +20,20 @@
                 <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                <a class="nav-link" href="/LabsGerente">Informações dos Laboratórios</a>
+                <a class="nav-link" href="/LabsGerente">Gerenciar Laboratórios</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="GerenciarSolicitações">Solicitações de Agendamento</a>
+                <a class="nav-link" href="GerenciarSolicitações">Gerenciar Solicitações</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/CalendárioGerente">Calendário</a>
+                <a class="nav-link" href="/CalendárioGerente">Calendário Gerente</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" href="home">Área do Usuário</a>
                 </li>
                 </div>
                 </ul>
+                <div class="card-body">
             <h1>Calendário de Agendamento</h1>
             <hr>
             <div class="col-12">
@@ -66,7 +70,7 @@
                 selectable: true,
                 selectHelper: true,
                 select: function (start, end, allDay) {
-                    var event_name = prompt('Nome do Lab:');
+                    var event_name = prompt('Lab e Hora do Agendamento');
                     if (event_name) {
                         var start = $.fullCalendar.formatDate(start, "YYYY-MM-DD HH:mm:ss");
                         var end = $.fullCalendar.formatDate(end, "YYYY-MM-DD HH:mm:ss");
@@ -144,7 +148,7 @@
     </div>
     </div>
     </div>
-
+    </div>
 </div>
 </div>
 </div>

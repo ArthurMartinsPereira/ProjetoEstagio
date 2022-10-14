@@ -6,6 +6,8 @@ use app\Http\Controllers\LabsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\RegisterController;
 use app\Http\Controllers\LabsGerenteController;
+use app\Http\Middleware\AdminsOnly;
+use app\Http\Kernel;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,12 +25,15 @@ Route::get('/Solicitações', function () {
 
 Route::get('/LabsGerente', function () {
     return view('LabsGerente');
-});
+})->middleware('admin');
 
 Route::get('/Calendário', function () {
     return view('Calendar');
 });
 
+Route::get('/erro', function () {
+    return view('Erro');
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -51,22 +56,22 @@ Route::get('Solicitações','LabsController@index9');
 Route::post('solicitação', 'LabsController@store');
 
 
-Route::get('GerenciarSolicitações','SolicitaçõesController@index10');
-Route::get('Gerente.Resposta/{id}','SolicitaçõesController@edit');
-Route::put('Gerente.Responder/{id}','SolicitaçõesController@update')->name('Gerente.Responder');
+Route::get('GerenciarSolicitações','SolicitaçõesController@index10')->middleware('admin');
+Route::get('Gerente.Resposta/{id}','SolicitaçõesController@edit')->middleware('admin');
+Route::put('Gerente.Responder/{id}','SolicitaçõesController@update')->name('Gerente.Responder')->middleware('admin');
 
 
-Route::get('LabGerente-01','LabsGerenteController@index');
-Route::get('LabGerente-02','LabsGerenteController@index2');
-Route::get('LabGerente-03','LabsGerenteController@index3');
-Route::get('LabGerente-04','LabsGerenteController@index4');
-Route::get('LabGerente-05','LabsGerenteController@index5');
-Route::get('LabGerente-06','LabsGerenteController@index6');
-Route::get('LabGerente-07','LabsGerenteController@index7');
-Route::get('LabGerente-08','LabsGerenteController@index8');
-Route::get('Gerente.Index','LabsGerenteController@index9');
-Route::get('Gerente.Editar/{id}','LabsGerenteController@edit');
-Route::put('Gerente.Update/{id}','LabsGerenteController@update')->name('Gerente.Update');
+Route::get('LabGerente-01','LabsGerenteController@index')->middleware('admin');
+Route::get('LabGerente-02','LabsGerenteController@index2')->middleware('admin');
+Route::get('LabGerente-03','LabsGerenteController@index3')->middleware('admin');
+Route::get('LabGerente-04','LabsGerenteController@index4')->middleware('admin');
+Route::get('LabGerente-05','LabsGerenteController@index5')->middleware('admin');
+Route::get('LabGerente-06','LabsGerenteController@index6')->middleware('admin');
+Route::get('LabGerente-07','LabsGerenteController@index7')->middleware('admin');
+Route::get('LabGerente-08','LabsGerenteController@index8')->middleware('admin');
+Route::get('Gerente.Index','LabsGerenteController@index9')->middleware('admin');
+Route::get('Gerente.Editar/{id}','LabsGerenteController@edit')->middleware('admin');
+Route::put('Gerente.Update/{id}','LabsGerenteController@update')->name('Gerente.Update')->middleware('admin');
 
 
 
@@ -76,14 +81,14 @@ Route::post('calendar/create-event', [EventController::class, 'create'])->name('
 Route::patch('calendar/edit-event', [EventController::class, 'edit'])->name('calendar.edit');
 Route::delete('calendar/remove-event', [EventController::class, 'destroy'])->name('calendar.destroy');
 
-Route::get('CalendárioGerente', [EventController::class, 'index2'])->name('CalendárioGerente.index2');
-Route::post('CalendárioGerente/create-event', [EventController::class, 'create2'])->name('CalendárioGerente.create2');
-Route::patch('CalendárioGerente/edit-event', [EventController::class, 'edit2'])->name('CalendárioGerente.edit2');
-Route::delete('CalendárioGerente/remove-event', [EventController::class, 'destroy2'])->name('CalendárioGerente.destroy2');
+Route::get('CalendárioGerente', [EventController::class, 'index2'])->name('CalendárioGerente.index2')->middleware('admin');
+Route::post('CalendárioGerente/create-event', [EventController::class, 'create2'])->name('CalendárioGerente.create2')->middleware('admin');
+Route::patch('CalendárioGerente/edit-event', [EventController::class, 'edit2'])->name('CalendárioGerente.edit2')->middleware('admin');
+Route::delete('CalendárioGerente/remove-event', [EventController::class, 'destroy2'])->name('CalendárioGerente.destroy2')->middleware('admin');
 
 Route::get('/CalendárioGerente', function () {
     return view('CalendárioGerente');
-});
+})->middleware('admin');
 /*  Route::get('Agenda-01','AgendaController@index');  */
 
 /* Route::resource('/Solicitações','SolicitaçõesController');  */

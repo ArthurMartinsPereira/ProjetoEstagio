@@ -20,7 +20,7 @@
 <!-- Estilo dos Botões -->
         <style>
             button {
-  background-color: #3c5e7d;
+  background-color: #2753a0;
   border: none;
   color: white;
   padding: 15px 32px;

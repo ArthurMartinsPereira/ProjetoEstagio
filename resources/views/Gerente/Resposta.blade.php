@@ -1,4 +1,4 @@
-@extends('layouts.layoutGerente')
+@extends('layouts.app')
 
 @section('content')
 @foreach($data10 as $item10)

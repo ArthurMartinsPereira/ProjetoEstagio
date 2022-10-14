@@ -22,14 +22,20 @@
                 <li class="nav-item">
                 <a class="nav-link" href="/Calendário">Calendário</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link active" href="/LabsGerente">Gerente</a>
+                </li>
                 </div>
                 </ul>
 
                 <div class="card-body">
+                @if(session('danger'))
+        <div class="alert alert-success">{{session('danger')}}</div>
+        @endif
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
-                        </div>[-]
+                        </div>
                     @endif
 
 <div>

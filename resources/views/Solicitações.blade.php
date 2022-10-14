@@ -16,6 +16,9 @@
                 <li class="nav-item">
                 <a class="nav-link" href="/Calendário">Calendário</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link active" href="/LabsGerente">Gerente</a>
+                </li>
                 </div>
                 </ul>
 

@@ -22,7 +22,7 @@
                     <hr>
 
                 <div  align="center">
-                    <a href="Gerente.Index">
+                    <a href="{{ url ('Gerente.Editar/'.$item->id) }}">
                     <button type="button" class="btn btn-success bg-gradient editbtn">
                           <h3>Alterar Informações</h3>
                        </button>

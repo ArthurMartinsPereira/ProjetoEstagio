@@ -35,6 +35,11 @@
                 </ul>
                 <div class="card-body">
             <h1>Calendário de Agendamento</h1>
+            <a href="GerenciarSolicitações">
+                       <button type="button" class="btn btn-success bg-gradient">
+                          <h3>Solicitações</h3>
+                       </button>
+</a>
             <hr>
             <div class="col-12">
                 <div id='calendar'></div>

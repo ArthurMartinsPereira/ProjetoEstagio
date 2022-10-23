@@ -19,7 +19,11 @@
                             <h4>Professor: {{$item10->Professor}}<h4>
   <div class="form-group mb-3">
     <label class="form-label">Estado:</label>
-    <input type="text" name="Estado" class="form-control" id="Estado" value="{{$item10->Estado}}">
+    <select type="text" name="Estado" class="form-select" aria-label="Default select example" id="Estado" value="{{$item10->Estado}}">
+  <option selected>{{$item10->Estado}}</option>
+  <option value="Aceita">Aceita</option>
+  <option value="Negada">Negada</option>
+  <option value="Processando">Processando</option>
   </div>
 
 </select>

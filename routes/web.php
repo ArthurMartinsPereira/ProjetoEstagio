@@ -77,6 +77,7 @@ Route::put('Gerente.Update/{id}','LabsGerenteController@update')->name('Gerente.
 
 
 Route::get('calendar', [EventController::class, 'index'])->name('calendar.index');
+Route::get('calendar/solicitação', [LabsController::class, 'store'])->name('solicitação.store');
 Route::post('calendar/create-event', [EventController::class, 'create'])->name('calendar.create');
 Route::patch('calendar/edit-event', [EventController::class, 'edit'])->name('calendar.edit');
 Route::delete('calendar/remove-event', [EventController::class, 'destroy'])->name('calendar.destroy');

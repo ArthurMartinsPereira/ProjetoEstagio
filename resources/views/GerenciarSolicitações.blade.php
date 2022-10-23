@@ -35,7 +35,7 @@
                     <a href="{{ url ('Gerente.Resposta/'.$item10->id) }}">
                         <button type="button" class="btn-lg btn-primary bg-gradient" value="{{$item10->id}}" data-bs-toggle="modal">
                             <h4>Agendamento: {{$item10->laboratório}}</h4>
-                            <h6>Dia Agendado: {{$item10->Dia}}</h6>
+                            <h6>Dia Agendado: {{$item10->Dia}} </h6>
                             <h6>Horário Agendado: {{$item10->Horário}}<h6>
                             <hr>
                             <h4>Estado da Solicitação: <h5>{{$item10->Estado}}</h5></h4>

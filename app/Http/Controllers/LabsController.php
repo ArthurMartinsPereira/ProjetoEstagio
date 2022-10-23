@@ -96,7 +96,8 @@ class LabsController extends Controller
             $solicitação->Estado = $request->input('Estado');
             $solicitação->save();
 
-            return redirect('home')->with('solicitação', 'Solicitação Enviada!');
+            return redirect('calendar')->with('solicitação', 'Solicitação Enviada!');
+            return response()->json([  'success' => true, 'Solicitação Enviada!']);
 
     }
 

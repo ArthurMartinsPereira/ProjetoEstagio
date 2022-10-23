@@ -32,6 +32,14 @@
                 </div>
                 </ul>
             <h1>Calendário de Agendamento</h1>
+            @if(session('solicitação'))
+        <div class="alert alert-success">{{session('solicitação')}}</div>
+        @endif
+            <a>
+                       <button type="button" class="btn btn-success bg-gradient" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          <h3>Agendar Laboratório</h3>
+                       </button>
+                    </a>
             <hr>
             <div class="col-12">
                 <div id='calendar'></div>
@@ -66,32 +74,27 @@
                 },
                 selectable: false,
                 selectHelper: false,
-                select: function (start, end, allDay) {
-                    var event_name = prompt('Name do Lab:');
+                select: function ($request) {
+                    var laboratório = prompt('Nome do Lab:');
+                    var Professor = prompt('Nome do Professor:');
+                    var Dia = prompt('Dia:');
+                    var Horário = prompt('Horário');
                     if (event_name) {
-                        var start = $.fullCalendar.formatDate(start, "YYYY-MM-DD HH:mm:ss");
-                        var end = $.fullCalendar.formatDate(end, "YYYY-MM-DD HH:mm:ss");
                         $.ajax({
-                            url: "{{ route('calendar.create') }}",
-                            data: {
-                                title: event_name,
-                                start: start,
-                                end: end
+                            url: "{{ route('solicitação.store') }}",
+                            solicitação: {
+                                laboratório: laboratório,
+                                Professor: Professor,
+                                Dia: Dia,
+                                Horário: Horário
                             },
                             type: 'post',
                             success: function (data) {
                                iziToast.success({
                                     position: 'topRight',
-                                    message: 'Agendamento Concluído.',
+                                    message: 'Solicitação Enviada.',
                                 });
 
-                                calendar.fullCalendar('renderEvent', {
-                                    id: data.id,
-                                    title: event_name,
-                                    start: start,
-                                    end: end,
-                                    allDay: allDay
-                                }, true);
                                 calendar.fullCalendar('unselect');
                             }
                         });
@@ -132,6 +135,75 @@
 </div>
 </div>
 </div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agendar Laboratório:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <form action="{{ url('solicitação') }}" method="POST">
+        @csrf
+      <div class="modal-body">
+
+  <div class="form-group mb-3">
+    <label class="form-label">Nome Lab</label>
+    <select type="text" name="laboratório" class="form-select" aria-label="Default select example" id="NomeLab">
+    <option value="Lab-01">Lab-01</option>
+    <option value="Lab-02">Lab-02</option>
+    <option value="Lab-03">Lab-03</option>
+    <option value="Lab-04">Lab-04</option>
+    <option value="Lab-05">Lab-05</option>
+    <option value="Lab-06">Lab-06</option>
+    <option value="Lab-07">Lab-07</option>
+    <option value="Lab-08">Lab-08</option>
+
+</select>
+  </div>
+
+  <div class="form-group mb-3">
+    <label class="form-label">Nome Professor</label>
+    <select type="text" name="Professor" class="form-select" aria-label="Default select example" id="NomeProf">
+    <option value="{{ Auth::user()->name }}">{{ Auth::user()->name }}</option>
+</select>
+  </div>
+
+  <div class="form-group mb-3">
+    <label class="form-label">Dia</label>
+    <input type="date" name="Dia" class="form-control" id="Dia">
+  </div>
+
+  <div class="form-group mb-3">
+    <label class="form-label">Horário</label>
+    <select type="time" name="Horário" class="form-select" aria-label="Default select example" id="Horário">
+  <option selected>Escolher Horário</option>
+  <option value="08:30-até-10:00">08:30 até 10:00</option>
+  <option value="10:00-até-11:30">10:00 até 11:30</option>
+  <option value="15:00-até-16:30">15:00 até 16:30</option>
+  <option value="16:30-até-18:00">16:30 até 18:00</option>
+</select>
+  </div>
+
+  <div class="form-group mb-3">
+    <label class="form-label">Estado da Solicitação</label>
+    <select type="text" name="Estado" class="form-select" aria-label="Default select example" id="Estado">
+    <option value="Processando">Processando</option>
+</select>
+  </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger bg-gradient" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-success bg-gradient">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+</body>
 </body>
 </html>
 @endsection

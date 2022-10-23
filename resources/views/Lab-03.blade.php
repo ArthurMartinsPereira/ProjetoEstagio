@@ -29,13 +29,13 @@
 
                     <hr>
 
-<div  align="center">
-    <a>
-       <button type="button" class="btn btn-success bg-gradient" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <h3>Agendar Laboratório</h3>
-       </button>
-    </a>
-</div>
+                    <div  align="center">
+                    <a href="/Calendário">
+                       <button type="button" class="btn btn-success bg-gradient" >
+                          <h3>Agendar Laboratório</h3>
+                       </button>
+                    </a>
+                </div>
 
     @endforeach
 

@@ -47,12 +47,12 @@ button:hover {
 
         <style>
         a{
-  position: relative; top:195px;
+  position: relative; top:150px;
         }</style>
 
              <style>
         body{
-            background: linear-gradient(90deg, rgba(254,94,32,1) 0%, rgba(241,150,22,1) 50%, rgba(255,216,15,1) 100%);
+            background: linear-gradient(90deg, #ffb700, #fca600, #f79403, #f2830a, #eb7212 100%);
   color: #ffffff;
         }
         </style>
@@ -62,7 +62,9 @@ button:hover {
 <body class="antialiased">
     <h1 align="center">Sistema de Agendamento de Laboratórios</h1>
     <hr>
-
+    <div align="center">
+    <!--<img src=https://avatars.githubusercontent.com/u/10983643?s=280&v=4width="160" height="160">-->
+    </div>
    <!-- Botões -->
 
          <div align="center">

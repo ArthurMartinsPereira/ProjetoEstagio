@@ -23,23 +23,23 @@
                 </ul>
 
                 <div class="card-body">
-                <a class="nav-link active" href="GerenciarSolicitaçõesExtra">Todas as Solicitações</a>
+                <a class="nav-link active" href="GerenciarSolicitações">Solicitações não Respondidas</a>
                 <hr>
-                    @if (session('resposta'))
+                    @if (session('resposta2'))
                     <div class="alert alert-success">
-                            {{ session('resposta') }}
+                            {{ session('resposta2') }}
                         </div>
                     @endif
 
-                    @foreach($data10 as $item10)
+                    @foreach($data11 as $item11)
                     <div align="center">
-                    <a href="{{ url ('Gerente.Resposta/'.$item10->id) }}">
-                        <button type="button" class="btn-lg btn-primary bg-gradient" value="{{$item10->id}}" data-bs-toggle="modal">
-                            <h4>Agendamento: {{$item10->laboratório}}</h4>
-                            <h6>Dia Agendado: {{$item10->Dia}} </h6>
-                            <h6>Horário Agendado: {{$item10->Horário}}<h6>
+                    <a href="{{ url ('Gerente.Resposta/'.$item11->id) }}">
+                        <button type="button" class="btn-lg btn-primary bg-gradient" value="{{$item11->id}}" data-bs-toggle="modal">
+                            <h4>Agendamento: {{$item11->laboratório}}</h4>
+                            <h6>Dia Agendado: {{$item11->Dia}} </h6>
+                            <h6>Horário Agendado: {{$item11->Horário}}<h6>
                             <hr>
-                            <h4>Estado da Solicitação: <h5>{{$item10->Estado}}</h5></h4>
+                            <h4>Estado da Solicitação: <h5>{{$item11->Estado}}</h5></h4>
                         </button>
                         <hr>
                     </a>

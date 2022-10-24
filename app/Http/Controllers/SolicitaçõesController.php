@@ -17,12 +17,20 @@ class SolicitaçõesController extends Controller
     public function index10()
     {
 
-            $data10 = DB::table('solicitações')
+            $data10 = DB::table('solicitações')->where('Estado', 'Processando')
             ->orderBy('created_at', 'desc')->get();
             return view('GerenciarSolicitações',['data10'=>$data10]);
 
     }
 
+    public function index11()
+    {
+
+            $data11 = DB::table('solicitações')
+            ->orderBy('created_at', 'desc')->get();
+            return view('GerenciarSolicitaçõesExtra',['data11'=>$data11]);
+
+    }
     public function notify()
     {
 
@@ -51,6 +59,17 @@ class SolicitaçõesController extends Controller
        }
     }
 
+    public function edit2(Solicitações $solicitações, $id){
+        $solic = Solicitações::find($id);
+        if(!empty($solic)){
+            $data11 = DB::table('solicitações')->where('id',$id)->get();
+            return view('Gerente.Resposta2', compact('solicitações', 'solic'),['data11'=>$data11]);
+        }
+       else{
+         return redirect('GerenciarSolicitaçõesExtra');
+       }
+    }
+
     public function update(Request $request, $id)
     {
         $data12 = [
@@ -63,6 +82,17 @@ class SolicitaçõesController extends Controller
     }
 
 
+
+    public function update2(Request $request, $id)
+    {
+        $data13 = [
+            'Estado' => $request->Estado,
+
+        ];
+        Solicitações::where('id',$id)->update($data13);
+
+        return redirect('GerenciarSolicitaçõesExtra')->with('resposta2', 'Resposta Enviada!');
+    }
 
 
     public function store(Request $request)

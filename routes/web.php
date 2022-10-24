@@ -59,7 +59,9 @@ Route::post('solicitação', 'LabsController@store');
 Route::get('GerenciarSolicitações','SolicitaçõesController@index10')->middleware('admin');
 Route::get('Gerente.Resposta/{id}','SolicitaçõesController@edit')->middleware('admin');
 Route::put('Gerente.Responder/{id}','SolicitaçõesController@update')->name('Gerente.Responder')->middleware('admin');
-
+Route::get('GerenciarSolicitaçõesExtra','SolicitaçõesController@index11')->middleware('admin');
+Route::get('Gerente.Resposta2/{id}','SolicitaçõesController@edit2')->middleware('admin');
+Route::put('Gerente.Responder2/{id}','SolicitaçõesController@update2')->name('Gerente.Responder2')->middleware('admin');
 
 Route::get('LabGerente-01','LabsGerenteController@index')->middleware('admin');
 Route::get('LabGerente-02','LabsGerenteController@index2')->middleware('admin');

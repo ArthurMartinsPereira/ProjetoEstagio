@@ -52,7 +52,7 @@ button:hover {
 
              <style>
         body{
-            background: linear-gradient(90deg, #ffb700, #fca600, #f79403, #f2830a, #eb7212 100%);
+            background: linear-gradient(90deg, rgba(254,94,32,1) 0%, rgba(241,150,22,1) 50%, rgba(255,216,15,1) 100%);
   color: #ffffff;
         }
         </style>

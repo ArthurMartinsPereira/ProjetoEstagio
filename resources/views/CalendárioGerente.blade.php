@@ -75,7 +75,7 @@
                 selectable: true,
                 selectHelper: true,
                 select: function (start, end, allDay) {
-                    var event_name = prompt('Lab e Hora do Agendamento');
+                    var event_name = prompt('Insira o Laboratório e a Hora do Agendamento');
                     if (event_name) {
                         var start = $.fullCalendar.formatDate(start, "YYYY-MM-DD HH:mm:ss");
                         var end = $.fullCalendar.formatDate(end, "YYYY-MM-DD HH:mm:ss");

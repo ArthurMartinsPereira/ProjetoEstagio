@@ -31,11 +31,12 @@
                     @endif
 
                     @foreach($data9 as $item9)
+
                     <div align="center">
                     <a>
                         <button type="button" class="btn-lg btn-primary bg-gradient" data-bs-toggle="modal">
                             <h4>Agendamento: {{$item9->laboratório}}</h4>
-                            <h6>Dia Agendado: {{$item9->Dia}}</h6>
+                            <h6>Dia Agendado: {{date('d/m/Y', strtotime($item9->Dia))}}</h6>
                             <h6>Horário Agendado: {{$item9->Horário}}<h6>
                             <hr>
                             <h4>Estado da Solicitação: <h5>{{$item9->Estado}}</h5></h4>
@@ -44,6 +45,7 @@
                     </a>
 </div>
 @endforeach
+
 </div>
 
                 </div>

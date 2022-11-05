@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Solicitações extends Model
 {
     use HasFactory;
@@ -12,7 +13,7 @@ class Solicitações extends Model
 
     protected $table = 'Solicitações';
 
-    protected $fillable = [
+    protected $Solicitações = [
         'laboratório',
         'Dia',
         'Horário',

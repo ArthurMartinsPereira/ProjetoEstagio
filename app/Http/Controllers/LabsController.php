@@ -56,6 +56,9 @@ class LabsController extends Controller
         return view('Lab-08',['data8'=>$data8]);
     }
 
+
+
+
     public function index9()
     {
 
@@ -65,14 +68,9 @@ class LabsController extends Controller
 
     }
 
-    public function index11()
-    {
 
-            $data11 = DB::table('solicitações')->where('Professor',auth()->user()->name)
-            ->orderBy('created_at', 'desc')->where('Estado', 'Aceita')->get();
-            return view('Solicitações',['data9'=>$data11]);
 
-    }
+
 
 
     function create(){

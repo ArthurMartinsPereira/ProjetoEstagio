@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Laboratórios;
+use App\Models\Solicitações;
 
 
 class LabsGerenteController extends Controller
@@ -69,7 +70,31 @@ class LabsGerenteController extends Controller
 
     }
 
+    function index11()
+    {
+        $data11 = DB::table('laboratórios')->get();
+        return view('LabsAgendaGerente',['data11'=>$data11]);
+    }
 
+
+
+    function index12(Laboratórios $laboratórios, $id)
+    {
+        $labAg = Laboratórios::find($id);
+        if(!empty($labAg)){
+        $data12 = DB::table('laboratórios', 'solicitações')->where('id',$id)->get();
+
+        $Agenda = Solicitações::join('laboratórios', 'laboratórios.NomeLab', '=', 'solicitações.laboratório')
+        ->where('laboratórios.id', $id)->where('solicitações.Estado', 'Aceita')->orderBy('Dia', 'desc')->get();
+
+        return view('LabsAgendaInfo',
+        compact('laboratórios', 'labAg', 'Agenda'),
+        ['data12'=>$data12]);
+        }
+        else{
+            return redirect('LabsAgendaGerente');
+          }
+    }
 
     /**
          * Store a newly created resource in storage.

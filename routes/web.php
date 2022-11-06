@@ -71,6 +71,10 @@ Route::get('LabGerente-05','LabsGerenteController@index5')->middleware('admin');
 Route::get('LabGerente-06','LabsGerenteController@index6')->middleware('admin');
 Route::get('LabGerente-07','LabsGerenteController@index7')->middleware('admin');
 Route::get('LabGerente-08','LabsGerenteController@index8')->middleware('admin');
+
+Route::get('LabsAgendaGerente','LabsGerenteController@index11')->middleware('admin');
+Route::get('LabsAgendaInfo/{id}','LabsGerenteController@index12')->middleware('admin');
+
 Route::get('Gerente.Index','LabsGerenteController@index9')->middleware('admin');
 Route::get('Gerente.Editar/{id}','LabsGerenteController@edit')->middleware('admin');
 Route::put('Gerente.Update/{id}','LabsGerenteController@update')->name('Gerente.Update')->middleware('admin');

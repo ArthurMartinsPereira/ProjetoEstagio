@@ -24,24 +24,30 @@
 
                 <div class="card-body">
                 <a class="nav-link active" href="GerenciarSolicitações">Solicitações não Respondidas</a>
-                <a class="nav-link active" href="GerenciarSolicitaçõesDeletar">Deletar Solicitações</a>
                 <hr>
-                    @if (session('resposta2'))
-                    <div class="alert alert-success">
-                            {{ session('resposta2') }}
+                <div align="center">
+                    <h2>Deletar Solicitações</h2>
+</div>
+@if (session('msg'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('msg') }}
                         </div>
                     @endif
-
-                    @foreach($data11 as $item11)
+<hr>
+                    @foreach($data12 as $item12)
                     <div align="center">
-                    <a href="{{ url ('Gerente.Resposta/'.$item11->id) }}">
-                        <button type="button" class="btn-lg btn-primary bg-gradient" value="{{$item11->id}}" data-bs-toggle="modal">
-                            <h4>Agendamento: {{$item11->laboratório}}</h4>
-                            <h6>Dia Agendado: {{date('d/m/Y', strtotime($item11->Dia))}} </h6>
-                            <h6>Horário Agendado: {{$item11->Horário}}<h6>
+                    <a>
+                        <form action="Gerente.DeletarSolicitação/{{$item12->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                        <button type="submit" class="btn-lg btn-danger delete-btn bg-gradient" value="{{$item12->id}}" data-bs-toggle="modal" id="{{$item12->id}}">
+                            <h4>Agendamento: {{$item12->laboratório}}</h4>
+                            <h6>Dia Agendado: {{date('d/m/Y', strtotime($item12->Dia))}} </h6>
+                            <h6>Horário Agendado: {{$item12->Horário}}<h6>
                             <hr>
-                            <h4>Estado da Solicitação: <h5>{{$item11->Estado}}</h5></h4>
+                            <h4>Estado da Solicitação: <h5>{{$item12->Estado}}</h5></h4>
                         </button>
+</form>
                         <hr>
                     </a>
 </div>

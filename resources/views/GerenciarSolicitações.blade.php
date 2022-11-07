@@ -23,7 +23,10 @@
                 </ul>
 
                 <div class="card-body">
+
                 <a class="nav-link active" href="GerenciarSolicitaçõesExtra">Todas as Solicitações</a>
+                <a class="nav-link active" href="GerenciarSolicitaçõesDeletar">Deletar Solicitações</a>
+
                 <hr>
                     @if (session('resposta'))
                     <div class="alert alert-success">

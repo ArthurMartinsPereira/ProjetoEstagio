@@ -32,6 +32,16 @@ class SolicitaçõesController extends Controller
             return view('GerenciarSolicitaçõesExtra',['data11'=>$data11]);
 
     }
+    public function index12()
+    {
+
+            $data12 = DB::table('solicitações')
+            ->orderBy('created_at')->where('Estado', '!=', 'Processando')->get();
+            return view('GerenciarSolicitaçõesDeletar',['data12'=>$data12]);
+
+    }
+
+
     public function notify()
     {
 
@@ -115,7 +125,7 @@ class SolicitaçõesController extends Controller
 
         $soli->save();
 
-        return redirect('/AgendaLab-01')->with('concluído', 'Solicitação Enviada');
+        return redirect('Solicitações')->with('concluído', 'Solicitação Enviada');
     }
 
     /**
@@ -126,6 +136,7 @@ class SolicitaçõesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Solicitações::findOrFail($id)->delete();
+        return redirect('GerenciarSolicitaçõesDeletar')->with('msg', 'Solicitação Deletada com sucesso');
     }
 }

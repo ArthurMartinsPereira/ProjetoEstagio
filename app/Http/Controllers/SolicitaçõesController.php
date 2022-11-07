@@ -36,7 +36,7 @@ class SolicitaçõesController extends Controller
     {
 
             $data12 = DB::table('solicitações')
-            ->orderBy('created_at')->where('Estado', '!=', 'Processando')->get();
+            ->orderBy('created_at', 'asc')->where('Estado', '!=', 'Processando')->get();
             return view('GerenciarSolicitaçõesDeletar',['data12'=>$data12]);
 
     }

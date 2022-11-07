@@ -30,6 +30,7 @@
                             </div>
                         </div>
 
+
                         <div class="row mb-3">
                             <label for="telefone" class="col-md-4 col-form-label text-md-end">Telefone</label>
 
@@ -67,6 +68,13 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="Admin" class="col-md-4 col-form-label text-md-end" value="Professor">Tipo do Usuário</label>
+
+                            <div class="col-md-6">
+                                <input id="Admin" type="text" class="form-control" name="Admin" value="Professor" readonly>
+                            </div>
+                        </div>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -76,6 +84,7 @@
                             </div>
                         </div>
                     </form>
+</div>
                 </div>
             </div>
         </div>

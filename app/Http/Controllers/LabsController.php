@@ -69,7 +69,11 @@ class LabsController extends Controller
     }
 
 
-
+    function index11()
+    {
+        $data11 = DB::table('laboratórios')->get();
+        return view('LabsAgenda',['data11'=>$data11]);
+    }
 
 
 

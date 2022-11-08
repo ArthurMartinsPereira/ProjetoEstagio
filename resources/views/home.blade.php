@@ -26,6 +26,8 @@
                 </ul>
 
                 <div class="card-body">
+                <a class="nav-link active" href="LabsAgenda">Agenda dos Laboratórios</a>
+                <hr>
                 @if(session('danger'))
         <div class="alert alert-success">{{session('danger')}}</div>
         @endif

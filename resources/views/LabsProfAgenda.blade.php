@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-@foreach($data12 as $item12)
+@foreach($data13 as $item13)
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-        <div class="card"  action="{{ url('LabsAgendaInfo/', ['id'=>$item12->id]) }}">
-                <div class="card-header"><h3>Agenda do {{$item12->NomeLab}}</h3></div>
+        <div class="card"  action="{{ url('LabsProfAgenda/', ['id'=>$item13->id]) }}">
+                <div class="card-header"><h3>Agenda do {{$item13->NomeLab}}</h3></div>
 
                 <div class="card-body">
-                <h4>Número de Lugares: {{$item12->NumLugares}}</h4>
-                    <h4>Número de Computadores: {{$item12->NumComputadores}}</h4>
+                <h4>Número de Lugares: {{$item13->NumLugares}}</h4>
+                    <h4>Número de Computadores: {{$item13->NumComputadores}}</h4>
                     <hr>
-                    <h4>Infromações Adicionais: <h5>{{$item12->InformaçõesAdicionais}}</h5></h4>
+                    <h4>Infromações Adicionais: <h5>{{$item13->InformaçõesAdicionais}}</h5></h4>
                     <hr>
                     @foreach($Agenda as $Agenda)
                     <div align="center">
@@ -22,7 +22,6 @@
                           <h5>{{date('d/m/Y', strtotime($Agenda->Dia))}}</h5>
                     Hora: {{$Agenda->Horário}}
                     <hr>
-                    <h6>Professor: {{$Agenda->Professor}}</h6>
                     {{$Agenda->Estado}}
                     </button>
                         <hr>

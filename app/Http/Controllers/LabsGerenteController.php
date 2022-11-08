@@ -96,6 +96,24 @@ class LabsGerenteController extends Controller
           }
     }
 
+/* Tela dos Professores para Agenda Dos Laboratórios*/
+    function index13(Laboratórios $laboratórios, $id)
+    {
+        $labAg = Laboratórios::find($id);
+        if(!empty($labAg)){
+        $data13 = DB::table('laboratórios', 'solicitações')->where('id',$id)->get();
+
+        $Agenda = Solicitações::join('laboratórios', 'laboratórios.NomeLab', '=', 'solicitações.laboratório')
+        ->where('laboratórios.id', $id)->where('Professor',auth()->user()->name)->where('solicitações.Estado', 'Aceita')->orderBy('Dia', 'desc')->get();
+
+        return view('LabsProfAgenda',
+        compact('laboratórios', 'labAg', 'Agenda'),
+        ['data13'=>$data13]);
+        }
+        else{
+            return redirect('LabsAgenda');
+          }
+    }
     /**
          * Store a newly created resource in storage.
          *

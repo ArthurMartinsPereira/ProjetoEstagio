@@ -9,31 +9,31 @@
         <div class="alert alert-success">{{session('solicitação')}}</div>
         @endif
 
-            <div class="card">
+        <div class="card">
                 <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                <a class="nav-link" href="/LabsGerente">Gerenciar Laboratórios</a>
+                <a class="nav-link" href="home">Informações dos Laboratórios</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="GerenciarSolicitações">Gerenciar Solicitações</a>
+                <a class="nav-link" href="/Solicitações">Solicitações de Agendamento</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/CalendárioGerente">Calendário Gerente</a>
+                <a class="nav-link" href="/Calendário">Calendário</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" href="home">Área do Usuário</a>
+                <a class="nav-link active" href="/LabsGerente">Gerente</a>
                 </li>
                 </div>
                 </ul>
 
                 <div class="card-body">
-                <a class="nav-link active" href="/LabsGerente">Gerenciar Laboratórios</a>
+                <a class="nav-link active" href="home">Informações dos Laboratórios</a>
                 <hr>
                 @foreach($data11 as $item11)
 
 <div>
-<a href="{{ url ('LabsAgendaInfo/'.$item11->id) }}">
+<a href="{{ url ('LabsProfAgenda/'.$item11->id) }}">
                         <button type="submit" class="btn btn-primary bg-gradient" value="{{$item11->NomeLab}}" id="{{$item11->id}}">
                             Agenda {{$item11->NomeLab}}
                         </button>

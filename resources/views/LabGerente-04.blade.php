@@ -5,13 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-
+        @foreach($data4 as $item4)
             <div class="card">
-                <div class="card-header"><h3>Informações do Lab-04</h3></div>
+                <div class="card-header"><h3>Informações {{$item4->NomeLab}}</h3></div>
 
                 <div class="card-body">
 
-                    @foreach($data4 as $item4)
+
 
                     <h4>Nome: {{$item4->NomeLab}}</h4>
                     <h4>Número de Lugares: {{$item4->NumLugares}}</h4>

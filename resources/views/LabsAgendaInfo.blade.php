@@ -22,7 +22,7 @@
                           <h5>{{date('d/m/Y', strtotime($Agenda->Dia))}}</h5>
                     Hora: {{$Agenda->Horário}}
                     <hr>
-                    <h6>Professor: {{$Agenda->Professor}}</h6>
+                    <h6>Professor(a): {{$Agenda->Professor}}</h6>
                     {{$Agenda->Estado}}
                     </button>
                         <hr>

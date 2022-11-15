@@ -10,6 +10,23 @@ use App\Models\Solicitações;
 
 class LabsGerenteController extends Controller
 {
+    //Para Usuários Comuns
+function index2(Laboratórios $laboratórios, $id)
+{
+    $labAg = Laboratórios::find($id);
+    if(!empty($labAg)){
+    $data2 = DB::table('laboratórios', 'solicitações')->where('id',$id)->get();
+    return view('LabsInfo',
+    compact('laboratórios', 'labAg'),
+    ['data2'=>$data2]);
+    }
+    else{
+        return redirect('LabsGerente');
+
+    }
+}
+    /* Fora de Uso
+
     function index()
     {
         $data = DB::table('laboratórios')->where('id',1)->get();
@@ -53,6 +70,20 @@ class LabsGerenteController extends Controller
     {
         $data8 = DB::table('laboratórios')->where('id',8)->get();
         return view('LabGerente-08',['data8'=>$data8]);
+
+    }
+
+    */
+    function index7()
+    {
+        $data7 = DB::table('laboratórios')->get();
+        return view('Gerente.DeletarLaboratório',['data7'=>$data7]);
+
+    }
+
+    function index8()
+    {
+        return view('Gerente.CriarLab');
 
     }
 
@@ -114,6 +145,27 @@ class LabsGerenteController extends Controller
             return redirect('LabsAgenda');
           }
     }
+
+    function index14()
+    {
+        $data14 = DB::table('laboratórios')->get();
+        return view('LabsGerente',['data14'=>$data14]);
+
+    }
+
+    function index15(Laboratórios $laboratórios, $id)
+    {
+        $labAg = Laboratórios::find($id);
+        if(!empty($labAg)){
+        $data15 = DB::table('laboratórios', 'solicitações')->where('id',$id)->get();
+        return view('LabsGerenteInfo',
+        compact('laboratórios', 'labAg'),
+        ['data15'=>$data15]);
+        }
+        else{
+            return redirect('LabsGerente');
+          }
+    }
     /**
          * Store a newly created resource in storage.
          *
@@ -122,16 +174,18 @@ class LabsGerenteController extends Controller
          */
         function store(Request $request){
 
-            $laboratórios = new Laboratórios;
-            $laboratórios->NomeLab = $request->input('NomeLab');
-            $laboratórios->NumLugares = $request->input('NumLugares');
-            $laboratórios->NumComputadores = $request->input('NumComputadores');
-            $laboratórios->InformaçõesAdicionais = $request->input('InformaçõesAdicionais');
-            $laboratórios->save();
+            $CriarComplete = new Laboratórios;
+            $CriarComplete->NomeLab = $request->input('NomeLab');
+            $CriarComplete->NumLugares = $request->input('NumLugares');
+            $CriarComplete->NumComputadores = $request->input('NumComputadores');
+            $CriarComplete->InformaçõesAdicionais = $request->input('InformaçõesAdicionais');
 
-            return redirect('LabsGerente')->with('success', 'Laboratório Criado!');
+            $CriarComplete->save();
+
+            return redirect('LabsGerente')->with('criar', 'Laboratório Criado!');
 
     }
+
 
 
     public function edit(Laboratórios $laboratórios, $id){
@@ -159,5 +213,10 @@ class LabsGerenteController extends Controller
     }
 
 
+    public function destroy($id)
+    {
+        Laboratórios::findOrFail($id)->delete();
+        return redirect('LabsGerente')->with('msg', 'Laboratório Deletado com Sucesso');
+    }
 }
 

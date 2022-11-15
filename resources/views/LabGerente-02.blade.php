@@ -9,8 +9,9 @@
         <div class="alert alert-success">{{session('solicitação')}}</div>
         @endif
 
+        @foreach($data2 as $item2)
             <div class="card">
-                <div class="card-header"><h3>Informações do Lab-02</h3></div>
+                <div class="card-header"><h3>Informações do {{$item2->NomeLab}}</h3></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -19,7 +20,7 @@
                         </div>[-]
                     @endif
 
-                    @foreach($data2 as $item2)
+
 
                     <h4>Nome: {{$item2->NomeLab}}</h4>
                     <h4>Número de Lugares: {{$item2->NumLugares}}</h4>

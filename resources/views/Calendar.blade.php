@@ -150,17 +150,11 @@
       <div class="modal-body">
 
   <div class="form-group mb-3">
-    <label class="form-label">Nome Lab</label>
+    <label class="form-label">Nome do Laboratório</label>
     <select type="text" name="laboratório" class="form-select" aria-label="Default select example" id="NomeLab">
-    <option value="Lab-01">Lab-01</option>
-    <option value="Lab-02">Lab-02</option>
-    <option value="Lab-03">Lab-03</option>
-    <option value="Lab-04">Lab-04</option>
-    <option value="Lab-05">Lab-05</option>
-    <option value="Lab-06">Lab-06</option>
-    <option value="Lab-07">Lab-07</option>
-    <option value="Lab-08">Lab-08</option>
-
+    @foreach($data as $item)
+    <option value="{{$item -> NomeLab}}">{{$item -> NomeLab}}</option>
+    @endforeach
 </select>
   </div>
 

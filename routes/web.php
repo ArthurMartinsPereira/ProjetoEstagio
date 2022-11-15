@@ -19,28 +19,7 @@ use app\Http\Kernel;
 |
 */
 
-Route::get('/Solicitações', function () {
-    return view('Solicitações');
-});
-
-Route::get('/LabsGerente', function () {
-    return view('LabsGerente');
-})->middleware('admin');
-
-Route::get('/Calendário', function () {
-    return view('Calendar');
-});
-
-Route::get('/erro', function () {
-    return view('Erro');
-});
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('Lab-teste','LabsController@index');
-
+/* Fora de uso
 
 Route::get('Lab-01','LabsController@index');
 Route::get('Lab-02','LabsController@index2');
@@ -51,6 +30,40 @@ Route::get('Lab-06','LabsController@index6');
 Route::get('Lab-07','LabsController@index7');
 Route::get('Lab-08','LabsController@index8');
 
+
+Route::get('LabGerente-01','LabsGerenteController@index')->middleware('admin');
+Route::get('LabGerente-02','LabsGerenteController@index2')->middleware('admin');
+Route::get('LabGerente-03','LabsGerenteController@index3')->middleware('admin');
+Route::get('LabGerente-04','LabsGerenteController@index4')->middleware('admin');
+Route::get('LabGerente-05','LabsGerenteController@index5')->middleware('admin');
+Route::get('LabGerente-06','LabsGerenteController@index6')->middleware('admin');
+Route::get('LabGerente-07','LabsGerenteController@index7')->middleware('admin');
+Route::get('LabGerente-08','LabsGerenteController@index8')->middleware('admin');
+*/
+
+Route::get('/Solicitações', function () {
+    return view('Solicitações');
+});
+
+
+/*
+Route::get('/Calendário', function () {
+    return view('Calendar');
+});
+*/
+
+Route::get('/erro', function () {
+    return view('Erro');
+});
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+//Laboratórios dos Usuários Comuns
+Route::get('LabsInfo/{id}','LabsGerenteController@index2');
+Route::get('LabsAgenda','LabsController@index11');
+Route::get('LabsProfAgenda/{id}','LabsGerenteController@index13');
 
 Route::get('Solicitações','LabsController@index9');
 Route::post('solicitação', 'LabsController@store');
@@ -65,27 +78,23 @@ Route::put('Gerente.Responder2/{id}','SolicitaçõesController@update2')->name('
 Route::get('GerenciarSolicitaçõesDeletar','SolicitaçõesController@index12')->middleware('admin');
 Route::delete('Gerente.DeletarSolicitação/{id}','SolicitaçõesController@destroy')->middleware('admin');
 
-Route::get('LabGerente-01','LabsGerenteController@index')->middleware('admin');
-Route::get('LabGerente-02','LabsGerenteController@index2')->middleware('admin');
-Route::get('LabGerente-03','LabsGerenteController@index3')->middleware('admin');
-Route::get('LabGerente-04','LabsGerenteController@index4')->middleware('admin');
-Route::get('LabGerente-05','LabsGerenteController@index5')->middleware('admin');
-Route::get('LabGerente-06','LabsGerenteController@index6')->middleware('admin');
-Route::get('LabGerente-07','LabsGerenteController@index7')->middleware('admin');
-Route::get('LabGerente-08','LabsGerenteController@index8')->middleware('admin');
+//Laboratórios do Gerente
+Route::get('/LabsGerente','LabsGerenteController@index14')->middleware('admin');
+Route::get('LabsGerenteInfo/{id}','LabsGerenteController@index15')->middleware('admin');
 
-Route::get('LabsAgenda','LabsController@index11');
-Route::get('LabsProfAgenda/{id}','LabsGerenteController@index13');
 Route::get('LabsAgendaGerente','LabsGerenteController@index11')->middleware('admin');
-Route::get('LabsAgendaInfo/{id}','LabsGerenteController@index12');
+Route::get('LabsAgendaInfo/{id}','LabsGerenteController@index12')->middleware('admin');
 
 Route::get('Gerente.Index','LabsGerenteController@index9')->middleware('admin');
 Route::get('Gerente.Editar/{id}','LabsGerenteController@edit')->middleware('admin');
 Route::put('Gerente.Update/{id}','LabsGerenteController@update')->name('Gerente.Update')->middleware('admin');
+Route::get('Gerente.CriarLab','LabsGerenteController@index8')->middleware('admin');
+Route::post('Gerente.CriarComplete','LabsGerenteController@store')->middleware('admin');
+Route::get('Gerente.DeletarLaboratório','LabsGerenteController@index7')->middleware('admin');
+Route::delete('Gerente.DeletarLab/{id}','LabsGerenteController@destroy')->middleware('admin');
 
 
-
-
+Route::get('Calendário', [EventController::class, 'index12']);
 Route::get('calendar', [EventController::class, 'index'])->name('calendar.index');
 Route::get('calendar/solicitação', [LabsController::class, 'store'])->name('solicitação.store');
 Route::post('calendar/create-event', [EventController::class, 'create'])->name('calendar.create');

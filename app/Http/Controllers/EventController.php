@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Validator;
 use App\Models\Event;
+use App\Models\Laboratórios;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -13,12 +15,13 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, Laboratórios $data)
     {
         if ($request->ajax()) {
             $events = Event::whereDate('start', '>=', $request->start)
                 ->whereDate('end', '<=', $request->end)
                 ->get();
+
 
             return response()->json($events);
         }
@@ -26,6 +29,12 @@ class EventController extends Controller
         return view('calendar');
     }
 
+
+    function index12()
+    {
+        $data = DB::table('laboratórios')->get();
+        return view('Calendar',['data'=>$data]);
+    }
     /**
      * Create new event.
      *

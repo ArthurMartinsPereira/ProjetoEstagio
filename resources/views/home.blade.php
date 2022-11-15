@@ -36,70 +36,17 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    @foreach($data as $item)
+                    <div>
+<a href="{{ url ('LabsInfo/'.$item->id) }}">
+                        <button type="submit" class="btn btn-primary bg-gradient" value="{{$item->NomeLab}}" id="{{$item->id}}">
+                            Informações {{$item->NomeLab}}
+                        </button>
+                    </a>
+</div>
+<hr>
 
-<div>
-                    <a href="/Lab-01">
-                        <button type="submit" class="btn btn-primary bg-gradient">
-                            Lab 01
-                        </button>
-                    </a>
-</div>
-<hr>
-<div>
-                    <a href="/Lab-02">
-                        <button type="submit" class="btn btn-primary bg-gradient">
-                            Lab 02
-                        </button>
-                    </a>
-</div>
-<hr>
-<div>
-                    <a href="/Lab-03">
-                        <button type="submit" class="btn btn-primary bg-gradient">
-                            Lab 03
-                        </button>
-                    </a>
-</div>
-<hr>
-<div>
-                    <a href="/Lab-04">
-                        <button type="submit" class="btn btn-primary bg-gradient">
-                            Lab 04
-                        </button>
-                    </a>
-</div>
-<hr>
-<div>
-                    <a href="/Lab-05">
-                        <button type="submit" class="btn btn-primary bg-gradient">
-                            Lab 05
-                        </button>
-                    </a>
-</div>
-<hr>
-<div>
-                    <a href="/Lab-06">
-                        <button type="submit" class="btn btn-primary bg-gradient">
-                            Lab 06
-                        </button>
-                    </a>
-</div>
-<hr>
-<div>
-                    <a href="/Lab-07">
-                        <button type="submit" class="btn btn-primary bg-gradient">
-                            Lab 07
-                        </button>
-                    </a>
-</div>
-<hr>
-<div>
-                    <a href="/Lab-08">
-                        <button type="submit" class="btn btn-primary bg-gradient">
-                            Lab 08
-                        </button>
-                    </a>
-</div>
+@endforeach
                 </div>
             </div>
         </div>

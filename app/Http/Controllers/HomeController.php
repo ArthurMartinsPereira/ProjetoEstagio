@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
@@ -23,8 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $data = DB::table('laboratórios')->get();
+        return view('home',['data'=>$data]);
 
-        return view('home');
     }
 
     public function handleAdmin()

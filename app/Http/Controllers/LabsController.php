@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Solicitações;
-
+use App\Models\Laboratórios;
 
 class LabsController extends Controller
 {
-    //
+
+    /* Fora de Uso
+
     function index()
     {
         $data = DB::table('laboratórios')->where('id',1)->get();
@@ -56,7 +58,7 @@ class LabsController extends Controller
         return view('Lab-08',['data8'=>$data8]);
     }
 
-
+*/
 
 
     public function index9()
@@ -91,6 +93,8 @@ class LabsController extends Controller
          */
         function store(Request $request){
 
+
+
             $solicitação = new Solicitações;
             $solicitação->laboratório = $request->input('laboratório');
             $solicitação->Professor = $request->input('Professor');
@@ -99,7 +103,7 @@ class LabsController extends Controller
             $solicitação->Estado = $request->input('Estado');
             $solicitação->save();
 
-            return redirect('calendar')->with('solicitação', 'Solicitação Enviada!');
+            return redirect('Calendário')->with('solicitação', 'Solicitação Enviada!');
             return response()->json([  'success' => true, 'Solicitação Enviada!']);
 
     }

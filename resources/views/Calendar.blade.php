@@ -172,12 +172,19 @@
 
   <div class="form-group mb-3">
     <label class="form-label">Horário</label>
-    <select type="time" name="Horário" class="form-select" aria-label="Default select example" id="Horário">
+    <select type="text" name="Horário" class="form-select" aria-label="Default select example" id="Horário">
   <option selected>Escolher Horário</option>
-  <option value="08:30-até-10:00">08:30 até 10:00</option>
-  <option value="10:00-até-11:30">10:00 até 11:30</option>
-  <option value="15:00-até-16:30">15:00 até 16:30</option>
-  <option value="16:30-até-18:00">16:30 até 18:00</option>
+  <option value="08:00-até-09:00">08:00 até 09:00</option>
+  <option value="09:00-até-10:00">09:00 até 10:00</option>
+  <option value="10:00-até-11:00">10:00 até 11:00</option>
+  <option value="11:00-até-12:00">11:00 até 12:00</option>
+  <option value="12:00-até-13:00">12:00 até 13:00</option>
+  <option value="13:00-até-14:00">13:00 até 14:00</option>
+  <option value="14:00-até-15:00">14:00 até 15:00</option>
+  <option value="15:00-até-16:00">15:00 até 16:00</option>
+  <option value="16:00-até-17:00">16:00 até 17:00</option>
+  <option value="17:00-até-18:00">17:00 até 18:00</option>
+
 </select>
   </div>
 

@@ -34,7 +34,7 @@
             <div class="col-lg-8 col-12 col-sm-10 offset-lg-2 offset-sm-1">
               <h2 class="m-0">Acesso Negado</h2>
               <hr>
-              <h3>Sem Autorizações Necessárias</h3>
+              <h3>Sem <a href="Gerente/id1">Autorizações</a> Necessárias</h3>
               <hr>
               <a class="nav-link" href="home">
                 <button type="submit" class="btn btn-primary bg-gradient">

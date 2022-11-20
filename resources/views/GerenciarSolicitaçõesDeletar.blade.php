@@ -17,6 +17,9 @@
                 <a class="nav-link" href="/CalendárioGerente">Calendário Gerente</a>
                 </li>
                 <li class="nav-item">
+                <a class="nav-link" href="GerenteUsuários">Usuários</a>
+                </li>
+                <li class="nav-item">
                 <a class="nav-link active" href="home">Área do Usuário</a>
                 </li>
                 </div>

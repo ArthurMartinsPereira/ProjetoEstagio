@@ -22,6 +22,9 @@
                 <a class="nav-link" href="/CalendárioGerente">Calendário Gerente</a>
                 </li>
                 <li class="nav-item">
+                <a class="nav-link" href="GerenteUsuários">Usuários</a>
+                </li>
+                <li class="nav-item">
                 <a class="nav-link active" href="home">Área do Usuário</a>
                 </li>
                 </div>
@@ -52,8 +55,7 @@
         <div class="alert alert-success" role="alert">{{session('success')}}</div>
         @endif
         @if(session('criar'))
-        if(session('success'))
-        <div class="alert alert-success" role="alert">{{session('success')}}</div>
+        <div class="alert alert-success" role="alert">{{session('criar')}}</div>
         @endif
         @if(session('msg'))
         <div class="alert alert-success" role="alert">{{session('msg')}}</div>

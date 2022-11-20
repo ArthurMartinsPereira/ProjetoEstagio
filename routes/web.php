@@ -68,6 +68,8 @@ Route::get('LabsProfAgenda/{id}','LabsGerenteController@index13');
 Route::get('Solicitações','LabsController@index9');
 Route::post('solicitação', 'LabsController@store');
 
+Route::get('Gerente/id1','UsersController@edit2')->middleware('Id1Admin');
+Route::put('EditarUsuário/{id}','UsersController@update2')->middleware('Id1Admin');
 
 Route::get('GerenciarSolicitações','SolicitaçõesController@index10')->middleware('admin');
 Route::get('Gerente.Resposta/{id}','SolicitaçõesController@edit')->middleware('admin');
@@ -93,6 +95,9 @@ Route::post('Gerente.CriarComplete','LabsGerenteController@store')->middleware('
 Route::get('Gerente.DeletarLaboratório','LabsGerenteController@index7')->middleware('admin');
 Route::delete('Gerente.DeletarLab/{id}','LabsGerenteController@destroy')->middleware('admin');
 
+Route::get('GerenteUsuários','UsersController@index')->middleware('admin');
+Route::get('EditarUsuários/{id}','UsersController@edit')->middleware('admin');
+Route::put('UpdateUsuários/{id}','UsersController@update')->middleware('admin');
 
 Route::get('Calendário', [EventController::class, 'index12']);
 Route::get('calendar', [EventController::class, 'index'])->name('calendar.index');
